@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <title>Dash Board</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!----css3---->
+  <link rel="stylesheet" href="css/adminDashBoard.css">
+
+  <!--google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!--google material icon-->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="body-overlay"></div>
+
+    <!-------sidebar--design------------>
+    <div id="sidebar">
+      <div class="sidebar-header">
+        <h3><img src="img/problem logo.png" class="img-fluid" /><span>Student Management</span></h3>
+      </div>
+      <ul class="list-unstyled">
+        <li class="admin">
+          <i class="material-icons">dashboard</i>ADMIN BOARD
+        </li>
+        <li class="selected" data-content=".table-wrapper.students">
+          <i class="material-icons">school</i>Students
+        </li>
+        <li class="" data-content=".table-wrapper.lessons">
+          <i class="material-icons">auto_stories</i>Lessons
+        </li>
+        <li class="" data-content=".table-wrapper.quizes">
+          <i class="material-icons">quiz</i>Quizes
+        </li>
+        <li class="">
+          <i class="material-icons">bar_chart</i>Statistics
+        </li>
+        <li class="">
+          <i class="material-icons">manage_accounts</i>Manage Users
+        </li>
+      </ul>
+    </div>
+    <!-------sidebar--design- close----------->
+
+    <!-------page-content start----------->
+    <div id="content">
+      <!------top-navbar-start----------->
+      <div class="top-navbar">
+        <div class="xd-topbar">
+          <div class="row">
+            <div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
+              <div class="xp-menubar">
+                <span class="material-icons text-white">signal_cellular_alt</span>
+              </div>
+            </div>
+            <div class="col-md-5 col-lg-3 order-3 order-md-2">
+              <div class="xp-searchbar">
+                <form>
+                  <div class="input-group">
+                    <input type="search" class="form-control" placeholder="Search">
+                    <div class="input-group-append">
+                      <button class="btn" type="submit" id="button-addon2">Go
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-10 col-md-6 col-lg-8 order-1 order-md-3">
+              <div class="xp-profilebar text-right">
+                <nav class="navbar p-0">
+                  <ul class="nav navbar-nav flex-row ml-auto">
+                    <li class="dropdown nav-item active">
+                      <a class="nav-link" href="#" data-toggle="dropdown">
+                        <span class="material-icons">notifications</span>
+                        <span class="notification">4</span>
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">You Have 4 New Messages</a></li>
+                        <li><a href="#">You Have 4 New Messages</a></li>
+                        <li><a href="#">You Have 4 New Messages</a></li>
+                        <li><a href="#">You Have 4 New Messages</a></li>
+                      </ul>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">
+                        <span class="material-icons">question_answer</span>
+                      </a>
+                    </li>
+
+                    <li class="dropdown nav-item">
+                      <a class="nav-link" href="#" data-toggle="dropdown">
+                        <img src="img/sprite_0.png" style="width:40px; border-radius:50%;" />
+                        <span class="xp-user-live"></span>
+                      </a>
+                      <ul class="dropdown-menu small-menu">
+                        <li><a href="#">
+                            <span class="material-icons">person_outline</span>
+                            Profile
+                          </a></li>
+                        <li><a href="#">
+                            <span class="material-icons">settings</span>
+                            Settings
+                          </a></li>
+                        <li><a href="#">
+                            <span class="material-icons">logout</span>
+                            Logout
+                          </a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+
+          <div class="xp-breadcrumbbar text-center">
+            <h4 class="page-title">Dashboard</h4>
+          </div>
+
+
+        </div>
+      </div>
+      <!------top-navbar-end----------->
+
+      <!------main-content-start----------->
+      <div class="main-content">
+        <div class="row">
+          <div class="col-md-12 tabel-container">
+            <!--Student List Table-->
+            <div class="table-wrapper students">
+              <div class="table-title">
+                <div class="row">
+                  <div class="col-sm-6 p-0 flex justify-content-lg-start justify-content-center">
+                    <h2 class="ml-lg-2">Students</h2>
+                  </div>
+                  <!--Add and Delete Buttons-->
+                  <div class="col-sm-6 p-0 flex justify-content-lg-end justify-content-center">
+                    <a href="#addStudentModal" class="btn btn-success" data-toggle="modal">
+                      <i class="material-icons">add_circle</i><span>Add New Student</span>
+                    </a>
+                    <a href="#deleteStudentModal" class="btn btn-danger" data-toggle="modal">
+                      <i class="material-icons">do_not_disturb_on</i><span>Delete Student</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <table class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Student Name</th>
+                    <th>ID</th>
+                    <th>Level</th>
+                    <th>Phone Number</th>
+                    <th>Grade</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="custom-checkbox">
+                        <input type="checkbox" id="checkbox1" name="option[]" value="1">
+                        <label for="checkbox1"></label></td>
+                    <td>Asem Emad</td>
+                    <td>201900395</td>
+                    <td>4</td>
+                    <td>01155345959</td>
+                    <td>3.27</td>
+                    <td>
+                      <a href="#editStudentModal" class="edit" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                      </a>
+                      <a href="#deleteStudentModal" class="delete" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><span class="custom-checkbox">
+                        <input type="checkbox" id="checkbox1" name="option[]" value="1">
+                        <label for="checkbox1"></label></td>
+                    <td>Asem Emad</td>
+                    <td>201900395</td>
+                    <td>4</td>
+                    <td>01155345959</td>
+                    <td>3.27</td>
+                    <td>
+                      <a href="#editStudentModal" class="edit" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                      </a>
+                      <a href="#deleteStudentModal" class="delete" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><span class="custom-checkbox">
+                        <input type="checkbox" id="checkbox1" name="option[]" value="1">
+                        <label for="checkbox1"></label></td>
+                    <td>Asem Emad</td>
+                    <td>201900395</td>
+                    <td>4</td>
+                    <td>01155345959</td>
+                    <td>3.27</td>
+                    <td>
+                      <a href="#editStudentModal" class="edit" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                      </a>
+                      <a href="#deleteStudentModal" class="delete" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><span class="custom-checkbox">
+                        <input type="checkbox" id="checkbox1" name="option[]" value="1">
+                        <label for="checkbox1"></label></td>
+                    <td>Asem Emad</td>
+                    <td>201900395</td>
+                    <td>4</td>
+                    <td>01155345959</td>
+                    <td>3.27</td>
+                    <td>
+                      <a href="#editStudentModal" class="edit" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                      </a>
+                      <a href="#deleteStudentModal" class="delete" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><span class="custom-checkbox">
+                        <input type="checkbox" id="checkbox1" name="option[]" value="1">
+                        <label for="checkbox1"></label></td>
+                    <td>Asem Emad</td>
+                    <td>201900395</td>
+                    <td>4</td>
+                    <td>01155345959</td>
+                    <td>3.27</td>
+                    <td>
+                      <a href="#editStudentModal" class="edit" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                      </a>
+                      <a href="#deleteStudentModal" class="delete" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!--Lessons List Table-->
+            <div class="table-wrapper lessons">
+              <div class="table-title">
+                <div class="row">
+                  <div class="col-sm-6 p-0 flex justify-content-lg-start justify-content-center">
+                    <h2 class="ml-lg-2">Lessons</h2>
+                  </div>
+                  <!--Add and Delete Buttons-->
+                  <div class="col-sm-6 p-0 flex justify-content-lg-end justify-content-center">
+                    <a href="#addStudentModal" class="btn btn-success" data-toggle="modal">
+                      <i class="material-icons">add_circle</i><span>Add New Lesson</span>
+                    </a>
+                    <a href="#deleteStudentModal" class="btn btn-danger" data-toggle="modal">
+                      <i class="material-icons">do_not_disturb_on</i><span>Delete Lesson</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <table class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>ID</th>
+                    <th>Lesson Name</th>
+                    <th>Content</th>
+                    <th>Date Added</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="custom-checkbox">
+                        <input type="checkbox" id="checkbox1" name="option[]" value="1">
+                        <label for="checkbox1"></label></td>
+                    <td>C11</td>
+                    <td>intro to CS</td>
+                    <td>Introduction to CS and programming</td>
+                    <td>15/10/2022</td>
+                    <td>
+                      <a href="#editStudentModal" class="edit" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                      </a>
+                      <a href="#deleteStudentModal" class="delete" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><span class="custom-checkbox">
+                        <input type="checkbox" id="checkbox1" name="option[]" value="1">
+                        <label for="checkbox1"></label></td>
+                    <td>C11</td>
+                    <td>intro to CS</td>
+                    <td>Introduction to CS and programming</td>
+                    <td>15/10/2022</td>
+                    <td>
+                      <a href="#editStudentModal" class="edit" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                      </a>
+                      <a href="#deleteStudentModal" class="delete" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><span class="custom-checkbox">
+                        <input type="checkbox" id="checkbox1" name="option[]" value="1">
+                        <label for="checkbox1"></label></td>
+                    <td>C11</td>
+                    <td>intro to CS</td>
+                    <td>Introduction to CS and programming</td>
+                    <td>15/10/2022</td>
+                    <td>
+                      <a href="#editStudentModal" class="edit" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                      </a>
+                      <a href="#deleteStudentModal" class="delete" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><span class="custom-checkbox">
+                        <input type="checkbox" id="checkbox1" name="option[]" value="1">
+                        <label for="checkbox1"></label></td>
+                    <td>C11</td>
+                    <td>intro to CS</td>
+                    <td>Introduction to CS and programming</td>
+                    <td>15/10/2022</td>
+                    <td>
+                      <a href="#editStudentModal" class="edit" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                      </a>
+                      <a href="#deleteStudentModal" class="delete" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><span class="custom-checkbox">
+                        <input type="checkbox" id="checkbox1" name="option[]" value="1">
+                        <label for="checkbox1"></label></td>
+                    <td>C11</td>
+                    <td>intro to CS</td>
+                    <td>Introduction to CS and programming</td>
+                    <td>15/10/2022</td>
+                    <td>
+                      <a href="#editStudentModal" class="edit" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                      </a>
+                      <a href="#deleteStudentModal" class="delete" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!--Quizes List Table-->
+            <div class="table-wrapper quizes">
+              <div class="table-title">
+                <div class="row">
+                  <div class="col-sm-6 p-0 flex justify-content-lg-start justify-content-center">
+                    <h2 class="ml-lg-2">Quizes</h2>
+                  </div>
+                  <!--Add and Delete Buttons-->
+                  <div class="col-sm-6 p-0 flex justify-content-lg-end justify-content-center">
+                    <a href="#addStudentModal" class="btn btn-success" data-toggle="modal">
+                      <i class="material-icons">add_circle</i><span>Add New Quiz</span>
+                    </a>
+                    <a href="#deleteStudentModal" class="btn btn-danger" data-toggle="modal">
+                      <i class="material-icons">do_not_disturb_on</i><span>Delete Quize</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <table class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Quize Name</th>
+                    <th>Students logged</th>
+                    <th>Grade</th>
+                    <th>Date Added</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="custom-checkbox">
+                        <input type="checkbox" id="checkbox1" name="option[]" value="1">
+                        <label for="checkbox1"></label></td>
+                    <td>Quize 1</td>
+                    <td>17</td>
+                    <td>20</td>
+                    <td>15/10/2022</td>
+                    <td>
+                      <a href="#editStudentModal" class="edit" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                      </a>
+                      <a href="#deleteStudentModal" class="delete" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><span class="custom-checkbox">
+                        <input type="checkbox" id="checkbox1" name="option[]" value="1">
+                        <label for="checkbox1"></label></td>
+                    <td>Quize 1</td>
+                    <td>17</td>
+                    <td>20</td>
+                    <td>15/10/2022</td>
+                    <td>
+                      <a href="#editStudentModal" class="edit" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                      </a>
+                      <a href="#deleteStudentModal" class="delete" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><span class="custom-checkbox">
+                        <input type="checkbox" id="checkbox1" name="option[]" value="1">
+                        <label for="checkbox1"></label></td>
+                    <td>Quize 1</td>
+                    <td>17</td>
+                    <td>20</td>
+                    <td>15/10/2022</td>
+                    <td>
+                      <a href="#editStudentModal" class="edit" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                      </a>
+                      <a href="#deleteStudentModal" class="delete" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><span class="custom-checkbox">
+                        <input type="checkbox" id="checkbox1" name="option[]" value="1">
+                        <label for="checkbox1"></label></td>
+                    <td>Quize 1</td>
+                    <td>17</td>
+                    <td>20</td>
+                    <td>15/10/2022</td>
+                    <td>
+                      <a href="#editStudentModal" class="edit" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                      </a>
+                      <a href="#deleteStudentModal" class="delete" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                      </a>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><span class="custom-checkbox">
+                        <input type="checkbox" id="checkbox1" name="option[]" value="1">
+                        <label for="checkbox1"></label></td>
+                    <td>Quize 1</td>
+                    <td>17</td>
+                    <td>20</td>
+                    <td>15/10/2022</td>
+                    <td>
+                      <a href="#editStudentModal" class="edit" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+                      </a>
+                      <a href="#deleteStudentModal" class="delete" data-toggle="modal">
+                        <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!------main-content-end----------->
+
+    <!--Student Modals Section-->
+    <form class="modal fade" tabindex="-1" id="addStudentModal" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add Student</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Student Name</label>
+              <input type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Student ID</label>
+              <input type="number" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Level</label><br>
+              <input type="radio" id="1" name="fav_language" value="1">
+              <label for="1">1</label>
+              <input type="radio" id="2" name="fav_language" value="2">
+              <label for="2">2</label>
+              <input type="radio" id="3" name="fav_language" value="3">
+              <label for="3">3</label>
+              <input type="radio" id="4" name="fav_language" value="4">
+              <label for="4">4</label>
+              <input type="radio" id="5" name="fav_language" value="5">
+              <label for="5">5</label>
+              <input type="radio" id="6" name="fav_language" value="6">
+              <label for="6">6</label>
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Grade</label>
+              <input type="number" class="form-control" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <input type="button" class="btn btn-primary" data-dismiss="modal" value="Back to Home">
+            <input type="submit" class="btn btn-warning" value="Submit">
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <form class="modal fade" tabindex="-1" id="editStudentModal" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Student Info</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Student Name</label>
+              <input type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Student ID</label>
+              <input type="number" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Level</label><br>
+              <input type="radio" id="1" name="fav_language" value="1">
+              <label for="1">1</label>
+              <input type="radio" id="2" name="fav_language" value="2">
+              <label for="2">2</label>
+              <input type="radio" id="3" name="fav_language" value="3">
+              <label for="3">3</label>
+              <input type="radio" id="4" name="fav_language" value="4">
+              <label for="4">4</label>
+              <input type="radio" id="5" name="fav_language" value="5">
+              <label for="5">5</label>
+              <input type="radio" id="6" name="fav_language" value="6">
+              <label for="6">6</label>
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Grade</label>
+              <input type="number" class="form-control" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <input type="button" class="btn btn-primary" data-dismiss="modal" value="Back to Home">
+            <input type="submit" class="btn btn-warning" value="Submit">
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <form class="modal fade" tabindex="-1" id="deleteStudentModal" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">delete Movie</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="deleteTable" id="deleteMovie">
+              <thead>
+                <tr class="deleteTable">
+                  <th class="deleteTable">Name</th>
+                  <th class="deleteTable">ID</th>
+                  <th class="deleteTable">Level</th>
+                  <th class="deleteTable">Phone</th>
+                  <th class="deleteTable">Grade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="deleteTable">
+                  <td class="deleteTable">Asem Emad</td>
+                  <td class="deleteTable">201900395</td>
+                  <td class="deleteTable">4</td>
+                  <td class="deleteTable">01155345959</td>
+                  <td class="deleteTable">3.27</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="modal-footer">
+              <input type="button" class="btn btn-primary" data-dismiss="modal" value="Back to Home">
+              <input type="submit" class="btn btn-warning" value="Delete">
+            </div>
+          </div>
+        </div>
+    </form>
+
+    <!----footer-design------------->
+    <footer class="footer">
+      <div class="container-fluid">
+        <div class="footer-in">
+          <p class="mb-0">&copy 2022 Problem Solving . All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <!-------complete html----------->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>
